@@ -1,13 +1,6 @@
-<h4 class="jumbotron text-center">
-  Howdy!
-</h4>
-
-<form (submit)="addName()">
-  <input [(ngModel)]="newName" name="newName" placeholder="Enter a Name">
-  <button type="submit">Add</button>
+<form>
+  <h1>Challenge Login</h1>
+  <input placeholder="Username" type="text" required>
+  <input placeholder="Password" type="password" required>
+  <button>Submit</button>
 </form>
-
-
-<ul>
-  <li *ngFor="let name of names">{{name}}</li>
-</ul>
