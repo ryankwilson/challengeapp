@@ -5,8 +5,8 @@ import { HomeRoutes } from './+home/index';
 import { LoginRoutes } from './+login/index';
 
 const routes: RouterConfig = [
-  ...HomeRoutes,
   ...AboutRoutes,
+  ...HomeRoutes,
   ...LoginRoutes
 ];
 
