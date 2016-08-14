@@ -1,13 +1,30 @@
-h1 {
-  height: 100px;
-  width: 100%;
-  font-size: 18px;
+/*h1 {
+  height: 50px;
+  width: 300px;
+  margin: 50px;
+  padding: 10px;
+  font-size: 24px;
   background: #0f83b2;
   color: white;
   line-height: 150%;
-  border-radius: 3px 3px 0 0;
+  border-radius: 3px;
   box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
+*/
+
+a {
+  border: none;
+  background: #0f83b2;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 200px;
+  color: white;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+/*
 
 form {
   box-sizing: border-box;
@@ -69,4 +86,4 @@ button:hover {
   -ms-transform: translateY(-3px);
   transform: translateY(-3px);
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
-}
+}*/
