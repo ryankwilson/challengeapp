@@ -13,7 +13,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 export class LoginComponent {
 
   onSubmit(): void {
-    console.log("Logging in...");
+    console.log('Logging in...');
   }
 
 }

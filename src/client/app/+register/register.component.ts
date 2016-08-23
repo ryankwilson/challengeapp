@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { ITeam } from '../shared/team';
 import { RegisterService } from './register.service';
-import { IRegistrationRequest } from './registration-request';
+//import { IRegistrationRequest } from './registration-request';
 
 @Component({
     moduleId: module.id,
@@ -13,7 +13,6 @@ export class RegisterComponent {
     teamName: string;
     password: string;
     confirmPassword: string;
-    
     team: ITeam;
     errorMessage: string;
     submitted: boolean = false;
@@ -40,5 +39,5 @@ export class RegisterComponent {
         this.submitted = true;
         console.log(`${this.team}`);
     }
-    
+
 }

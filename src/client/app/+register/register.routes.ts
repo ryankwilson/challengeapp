@@ -7,4 +7,4 @@ export const RegisterRoutes: RouterConfig = [
         path: 'register',
         component: RegisterComponent
     }
-]
+];
