@@ -1,7 +1,7 @@
-<form>
-  <h1>Challenge Login</h1>
+<form class="center-block">
+  <h1>Login</h1>
   <input placeholder="Username" type="text" required>
   <input placeholder="Password" type="password" required>
-  <button>Submit</button>
-  <button>Register</button>
+  <button class="btn" (click)="onSubmit()">Submit</button>
+  <button class="btn" [routerLink]="['/register']">Register</button>
 </form>
