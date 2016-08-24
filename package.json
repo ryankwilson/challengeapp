@@ -10,7 +10,7 @@
     "build.dev": "gulp build.dev --color --config-env dev",
     "build.dev.watch": "gulp build.dev.watch --color",
     "build.e2e": "gulp build.e2e --color",
-    "build.prod": "gulp build.prod --color --config-env prod --base rpcchallengeapp.azurewebsites.net/",
+    "build.prod": "gulp build.prod --color --config-env prod",
     "build.test": "gulp build.test --color",
     "build.test.watch": "gulp build.test.watch --color",
     "generate.manifest": "gulp generate.manifest --color",
