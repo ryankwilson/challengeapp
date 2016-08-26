@@ -10,6 +10,7 @@ import { EventListService } from './event-list.service';
 export class EventListComponent implements OnInit {
 
     public events: any[];
+    public loading: boolean = true;
     private _errorMessage: string;
 
     constructor(private eventListService: EventListService) { }
@@ -18,7 +19,8 @@ export class EventListComponent implements OnInit {
         this.eventListService.get()
             .subscribe(
                 events => this.events = events,
-                error => this._errorMessage = <any>error);
+                error => this._errorMessage = <any>error,
+                () => this.loading = false);
     }
 
 }
