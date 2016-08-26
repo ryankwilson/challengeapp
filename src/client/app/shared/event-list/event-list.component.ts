@@ -20,7 +20,7 @@ export class EventListComponent implements OnInit {
             .subscribe(
                 events => this.events = events,
                 error => this._errorMessage = <any>error,
-                () => this.loading = false);
+                () => setTimeout(() => this.loading = false, 700));
     }
 
 }
