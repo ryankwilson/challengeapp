@@ -6,7 +6,8 @@ import { RegisterService } from './register.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'register.component.html'
+    templateUrl: 'register.component.html',
+    styleUrls: ['register.component.css']
 })
 export class RegisterComponent {
 
@@ -14,13 +15,16 @@ export class RegisterComponent {
     password: string;
     confirmPassword: string;
     team: ITeam;
+    error: Boolean = false;
     errorMessage: string;
-    submitted: boolean = false;
+    submitting: boolean = false;
 
     constructor(
         private _registerService: RegisterService) { }
 
     onRegister() {
+        this.submitting = true;
+        this.error = false;
         // validate form input
 
         // try and register
@@ -31,13 +35,23 @@ export class RegisterComponent {
         })
         .subscribe(
             team => this.team = team,
-            error => this.errorMessage = <any>error);
+            error => this.handlerRegistrationError(error));
 
         // problem with registration
 
         // successful registration
-        this.submitted = true;
+        this.submitting = false;
         console.log(`${this.team}`);
     }
+
+    handlerRegistrationError(error: any) {
+        this.error = true;
+        this.errorMessage = error;
+        this.submitting = false;
+     }
+
+     onTryAgain() {
+         this.error = false;
+     }
 
 }

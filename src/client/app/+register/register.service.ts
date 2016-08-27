@@ -10,9 +10,7 @@ export class RegisterService {
 
     registerTeamUri: string = 'http://rpc-challenge-teams.azurewebsites.net/teams';
 
-    constructor(private _http: Http) {
-
-    }
+    constructor(private _http: Http) { }
 
     registerTeam(request: IRegistrationRequest): Observable<ITeam> {
         return this._http.post(

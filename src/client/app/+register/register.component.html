@@ -18,6 +18,16 @@
         <input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm Password" required>
     </div>
     <div class="row">
-        <button type="submit" class="btn" (click)="onRegister()">Register</button>
+        <button type="submit" class="btn" [class.btn-warning]="error" (click)="onRegister()">
+            <span *ngIf="!submitting">Register</span>
+            <rpc-loader [showIf]="submitting"></rpc-loader>
+        </button>
+    </div>
+    <div id="message1" class="jumbotron flyover flyover-bottom" [class.in]="error">
+        <h1>Oh snap!</h1>
+        <p>
+            Something went wrong...
+        </p>
+        <button class="btn btn-primary" (click)="onTryAgain()">Try again</button>
     </div>
 </div>
