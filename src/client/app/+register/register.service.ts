@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
 
 import { ITeam } from '../shared/team';
 import { IRegistrationRequest } from './registration-request';
@@ -29,7 +30,18 @@ export class RegisterService {
     }
 
     private handleError(error: Response) {
+        let errMsg = 'Something is wrong with the server!';
+        switch (error.status) {
+            case 400:
+                errMsg = 'Team Name or Password is invalid';
+                break;
+            case 409:
+                errMsg = 'Team Name is already taken!  Please try a different name.';
+                break;
+            default:
+                break;
+        }
         console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+        return Observable.throw(errMsg || 'Server error');
     }
 }

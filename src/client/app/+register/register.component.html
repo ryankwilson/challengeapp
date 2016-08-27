@@ -23,11 +23,5 @@
             <rpc-loader [showIf]="submitting"></rpc-loader>
         </button>
     </div>
-    <div id="message1" class="jumbotron flyover flyover-bottom" [class.in]="error">
-        <h1>Oh snap!</h1>
-        <p>
-            Something went wrong...
-        </p>
-        <button class="btn btn-primary" (click)="onTryAgain()">Try again</button>
-    </div>
+    <message-flyover [showIf]="error" [title]="'Oh Snap!'" [message]="errorMessage" [buttonMessage]="'Try again...'" (buttonClicked)="onTryAgain()"></message-flyover>
 </div>

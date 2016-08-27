@@ -8,8 +8,9 @@ import {
   ToolbarComponent,
   EventListService,
   EventListComponent,
-  LoaderComponent
- } from './shared/index';
+  LoaderComponent,
+  MessageFlyoverComponent
+} from './shared/index';
 import { RegisterService } from './+register/index';
 
 @Component({
@@ -17,7 +18,14 @@ import { RegisterService } from './+register/index';
   selector: 'sd-app',
   viewProviders: [RegisterService, EventListService, HTTP_PROVIDERS],
   templateUrl: 'app.component.html',
-  directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent, EventListComponent, LoaderComponent]
+  directives: [
+    ROUTER_DIRECTIVES,
+    NavbarComponent,
+    ToolbarComponent,
+    EventListComponent,
+    LoaderComponent,
+    MessageFlyoverComponent
+  ]
 })
 export class AppComponent {
   constructor() {

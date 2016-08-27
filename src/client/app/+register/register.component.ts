@@ -34,20 +34,20 @@ export class RegisterComponent {
             confirmPassword: this.confirmPassword
         })
         .subscribe(
-            team => this.team = team,
-            error => this.handlerRegistrationError(error));
-
-        // problem with registration
+            team => this.handleSuccess(team),
+            error => this.handleRegistrationError(error));
 
         // successful registration
         this.submitting = false;
-        console.log(`${this.team}`);
     }
 
-    handlerRegistrationError(error: any) {
+    handleSuccess(createdTeam: any) {
+        this.team = createdTeam;
+    }
+
+    handleRegistrationError(error: any) {
         this.error = true;
         this.errorMessage = error;
-        this.submitting = false;
      }
 
      onTryAgain() {
