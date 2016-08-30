@@ -1,27 +1,14 @@
-<div class="container">
-    <div class="row">
-        <h1>Register</h1>
-    </div>
-    <div class="row">
-        <event-list></event-list>
-    </div>
-    <div class="row">
-        <label for="txtTeamName">Team Name: </label>
-        <input [(ngModel)]="teamName" type="text" placeholder="Team Name" required>
-    </div>
-    <div class="row">
-        <label for="txtPassword">Password: </label>
-        <input [(ngModel)]="password" type="password" placeholder="Password" required>
-    </div>
-    <div class="row">
-        <label for="txtConfirmPassword">Confirm your Password: </label>
-        <input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm Password" required>
-    </div>
-    <div class="row">
-        <button type="submit" class="btn" [class.btn-warning]="error" (click)="onRegister()">
+<form class="center-block">
+    <h1>Register</h1>
+    <event-list (loadingChange)="eventListLoadingChange($event)"></event-list>
+    <input [(ngModel)]="teamName" name="teamName" type="text" placeholder="Team Name" required>
+    <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required>
+    <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+    <button class="btn" [class.btn-warning]="error" (click)="onRegister()">
             <span *ngIf="!submitting">Register</span>
             <rpc-loader [showIf]="submitting"></rpc-loader>
-        </button>
-    </div>
-    <message-flyover [showIf]="error" [title]="'Oh Snap!'" [message]="errorMessage" [buttonMessage]="'Try again...'" (buttonClicked)="onTryAgain()"></message-flyover>
-</div>
+    </button>
+</form>
+
+<rpc-loader [fullscreen]="true" [showIf]="loading"></rpc-loader>
+<message-flyover [showIf]="error" [title]="'Oh Snap!'" [message]="errorMessage" [buttonMessage]="'Try again...'" (buttonClicked)="onTryAgain()"></message-flyover>

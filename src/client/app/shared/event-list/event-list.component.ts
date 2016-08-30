@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { EventListService } from './event-list.service';
 
 @Component({
@@ -9,18 +9,27 @@ import { EventListService } from './event-list.service';
 })
 export class EventListComponent implements OnInit {
 
-    public events: any[];
-    public loading: boolean = true;
+    events: any[];
+    @Output() loadingChange = new EventEmitter();
+
+    private _loading: boolean = true;
     private _errorMessage: string;
 
     constructor(private eventListService: EventListService) { }
 
     ngOnInit() {
+        this._loading = true;
+        this.loadingChange.emit(this._loading);
         this.eventListService.get()
             .subscribe(
                 events => this.events = events,
                 error => this._errorMessage = <any>error,
-                () => setTimeout(() => this.loading = false, 700));
+                () => this.serviceDone());
+    }
+
+    serviceDone() {
+        this._loading = false;
+        this.loadingChange.emit(this._loading);
     }
 
 }

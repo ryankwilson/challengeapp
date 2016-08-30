@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { ITeam } from '../shared/team';
 import { RegisterService } from './register.service';
-//import { IRegistrationRequest } from './registration-request';
 
 @Component({
     moduleId: module.id,
@@ -18,6 +17,7 @@ export class RegisterComponent {
     error: Boolean = false;
     errorMessage: string;
     submitting: boolean = false;
+    loading: boolean = false;
 
     constructor(
         private _registerService: RegisterService) { }
@@ -52,6 +52,10 @@ export class RegisterComponent {
 
      onTryAgain() {
          this.error = false;
+     }
+
+     eventListLoadingChange(loadingState: any) {
+         this.loading = loadingState;
      }
 
 }
