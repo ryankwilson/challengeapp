@@ -8,6 +8,7 @@
             <span *ngIf="!submitting">Register</span>
             <rpc-loader [showIf]="submitting"></rpc-loader>
     </button>
+    <button class="btn btn-default" [routerLink]="['/login']">Already Registered</button>
 </form>
 
 <rpc-loader [fullscreen]="true" [showIf]="loading"></rpc-loader>
