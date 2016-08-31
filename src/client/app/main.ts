@@ -1,9 +1,10 @@
-import { APP_BASE_HREF } from '@angular/common';
+//import { APP_BASE_HREF } from '@angular/common';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
 
 import { APP_ROUTER_PROVIDERS } from './app.routes';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { AppComponent } from './app.component';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
@@ -16,10 +17,7 @@ bootstrap(AppComponent, [
   disableDeprecatedForms(),
   provideForms(),
   APP_ROUTER_PROVIDERS,
-  {
-    provide: APP_BASE_HREF,
-    useValue: '<%= APP_BASE %>'
-  }
+  {provide: LocationStrategy, useClass: HashLocationStrategy}
 ]);
 
 // In order to start the Service Worker located at "./worker.js"
