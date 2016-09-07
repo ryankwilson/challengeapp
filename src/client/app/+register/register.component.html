@@ -1,15 +1,16 @@
+<div class="alert alert-danger fade in" *ngIf="error">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oh Snap!</strong> {{errorMessage}}
+</div>
+
 <form class="center-block">
     <h1>Register</h1>
     <event-list (loadingChange)="eventListLoadingChange($event)"></event-list>
     <input [(ngModel)]="teamName" name="teamName" type="text" placeholder="Team Name" required>
     <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required>
     <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
-    <button class="btn" [class.btn-warning]="error" (click)="onRegister()">
-            <span *ngIf="!submitting">Register</span>
-            <rpc-loader [showIf]="submitting"></rpc-loader>
-    </button>
+    <button class="btn" [class.btn-warning]="error" [class.m-progress]="submitting" (click)="onRegister()">Register</button>
     <button class="btn btn-default" [routerLink]="['/login']">Already Registered</button>
 </form>
 
 <rpc-loader [fullscreen]="true" [showIf]="loading"></rpc-loader>
-<message-flyover [showIf]="error" [title]="'Oh Snap!'" [message]="errorMessage" [buttonMessage]="'Try again...'" (buttonClicked)="onTryAgain()"></message-flyover>

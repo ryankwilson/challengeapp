@@ -1,7 +1,14 @@
+<div class="alert alert-danger fade in" *ngIf="error">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oh Snap!</strong> {{errorMessage}}
+</div>
+
 <form class="center-block">
   <h1>Login</h1>
-  <input placeholder="Team Name" type="text" required>
-  <input placeholder="Password" type="password" required>
-  <button class="btn" (click)="onSubmit()">Login</button>
+  <input placeholder="Team Name" type="text" [(ngModel)]="teamName" name="teamName" required>
+  <input placeholder="Password" type="password" [(ngModel)]="password" name="password" required>
+  <button class="btn" [class.btn-warning]="error" [class.m-progress]="loggingIn" (click)="onSubmit()">Login</button>
   <button class="btn btn-default" [routerLink]="['/register']">I need to Register</button>
 </form>
+
+<rpc-loader [fullscreen]="true" [showIf]="loading"></rpc-loader>
