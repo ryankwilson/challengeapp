@@ -39,7 +39,7 @@ li {
 }
 
 input {
-  border: 1px solid #106cc8;
+  border: 1px solid #444444;
   font-size: 14px;
   height: 40px;
   outline: none;
@@ -47,7 +47,7 @@ input {
 }
 
 button {
-  background-color: #106cc8;
+  background-color: #444444;
   border-style: none;
   color: rgba(255, 255, 255, 0.87);
   cursor: pointer;
@@ -59,7 +59,7 @@ button {
 }
 
 button:hover {
-  background-color: #28739e;
+  background-color: #aaaaaa;
 }
 
 /***********************************************/
@@ -73,6 +73,8 @@ h1 {
   line-height: 150%;
   border-radius: 3px 3px 0 0;
   box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
 }
 
 form {
@@ -95,15 +97,15 @@ input {
   display: block;
   border: none;
   padding: 10px 0;
-  border-bottom: solid 1px #0f83b2;
+  border-bottom: solid 1px #444444;
   -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #0f83b2 4%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #0f83b2 4%);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #444444 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #444444 4%);
   background-position: -200px 0;
   background-size: 200px 100%;
   background-repeat: no-repeat;
-  color: #0f83b2;
+  color: #444444;
 }
 input:focus, input:valid {
  box-shadow: none;
@@ -111,7 +113,7 @@ input:focus, input:valid {
  background-position: 0 0;
 }
 input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
- color: #0f83b2;
+ color: #444444;
  font-size: 11px;
  -webkit-transform: translateY(-20px);
  transform: translateY(-20px);
@@ -120,7 +122,7 @@ input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
 
 button {
   border: none;
-  background: #0f83b2;
+  background: #444444;
   cursor: pointer;
   border-radius: 3px;
   padding: 6px;
