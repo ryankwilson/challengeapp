@@ -64,18 +64,19 @@ button:hover {
 
 /***********************************************/
 /**********************************************/
-h1 {
-  height: 100px;
-  width: 100%;
+/*h1 {
   font-size: 18px;
-  background: #0f83b2;
-  color: white;
-  line-height: 150%;
-  border-radius: 3px 3px 0 0;
+  background: whitesmoke;
+  color: black;
+  border-radius: 10px 10px 10px 10px;
   box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
-}
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+  box-sizing: border-box;
+}*/
 
 form {
   box-sizing: border-box;

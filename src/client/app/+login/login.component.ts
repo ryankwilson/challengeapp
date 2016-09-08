@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import { LoginService } from './login.service';
 import { LoginRequest, ILoginResponse } from '../shared/login';
@@ -21,7 +21,9 @@ export class LoginComponent implements OnInit {
   loading: Boolean = true;
   loggingIn: Boolean = false;
 
-  constructor(private _loginService: LoginService) { }
+  constructor(
+    private _loginService: LoginService,
+    private _router: Router) { }
 
   ngOnInit() {
     this.loading = false;
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
 
   private loginSuccess(response: ILoginResponse) {
     this.loggingIn = false;
+    this._router.navigate(['/challenges']);
   }
 
   private loginError(error: any) {
