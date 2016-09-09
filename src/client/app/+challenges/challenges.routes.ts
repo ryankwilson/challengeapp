@@ -4,7 +4,7 @@ import { ChallengesComponent } from './index';
 
 export const ChallengesRoutes: RouterConfig = [
     {
-        path: 'challenges',
+        path: 'challenges/:id',
         component: ChallengesComponent
     }
 ];
