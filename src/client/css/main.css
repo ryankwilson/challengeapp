@@ -14,17 +14,20 @@ div {
 
 /* Set up a default font and some padding to provide breathing room */
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 12px;
+  /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+  font-family: 'Baloo Tamma', Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url('/assets/websiteheader.jpg') no-repeat center center fixed;
   height: 100%;
   background-size: cover;
+  margin: 20px;
 }
 
 p {
-  font-weight: 400;
+  font-family: 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
+  /*font-weight: 300;*/
   letter-spacing: 0.01em;
   line-height: 20px;
   margin-bottom: 1em;
