@@ -4,6 +4,10 @@ nav h3 {
   display: inline;
 }
 
+nav h3 span {
+  color: #cc00cc;
+}
+
 nav {
   color: white;
   background-color: rgb(60, 60, 60);

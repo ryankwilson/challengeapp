@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-/**
- * This class represents the navigation bar component.
- */
+import { IdentityService } from '../../services/index';
+
 @Component({
   moduleId: module.id,
   selector: 'rpc-navbar',
@@ -11,4 +10,14 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   styleUrls: ['navbar.component.css'],
   directives: [ROUTER_DIRECTIVES]
 })
-export class NavbarComponent {}
+export class NavbarComponent implements OnInit {
+
+  teamName: string;
+
+  constructor(private _identityService: IdentityService) { }
+
+  ngOnInit() {
+    this.teamName = this._identityService.identity.teamName;
+  }
+
+}

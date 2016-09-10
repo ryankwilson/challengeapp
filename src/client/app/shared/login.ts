@@ -4,8 +4,8 @@ export interface ILoginRequest {
 }
 
 export interface ILoginResponse {
-    teamId: number;
-    name: string;
+    TeamId: number;
+    Name: string;
 }
 
 export class LoginRequest implements ILoginRequest {

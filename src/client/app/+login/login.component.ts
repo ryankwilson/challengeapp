@@ -3,7 +3,8 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import { LoginService } from './login.service';
 import { LoginRequest, ILoginResponse } from '../shared/login';
-//import { ITeam } from '../shared/team';
+
+import { IdentityService } from '../services/index';
 
 @Component({
   moduleId: module.id,
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _loginService: LoginService,
-    private _router: Router) { }
+    private _router: Router,
+    private _identityService: IdentityService) { }
 
   ngOnInit() {
     this.loading = false;
@@ -34,8 +36,8 @@ export class LoginComponent implements OnInit {
     this.error = false;
     this._loginService.login(new LoginRequest(this.teamName, this.password))
       .subscribe(
-        response => this.loginSuccess(response),
-        error => this.loginError(error)
+      response => this.loginSuccess(response),
+      error => this.loginError(error)
       );
   }
 
@@ -46,7 +48,11 @@ export class LoginComponent implements OnInit {
 
   private loginSuccess(response: ILoginResponse) {
     this.loggingIn = false;
-    this._router.navigate(['/challenges']);
+    this._identityService.identity = {
+      teamId: response.TeamId,
+      teamName: response.Name
+    };
+    this._router.navigate(['/challenges/1']);
   }
 
   private loginError(error: any) {

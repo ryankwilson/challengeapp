@@ -16,9 +16,7 @@ export class ChallengesComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.eventId = +params['id'];
-            //this.service.getHero(id).then(hero => this.hero = hero);
         });
-        console.log(this.eventId);
     }
 
 }
