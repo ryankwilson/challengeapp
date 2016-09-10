@@ -4,13 +4,34 @@
 </div>
 
 <form class="center-block">
-    <h1>Register</h1>
-    <event-list (loadingChange)="eventListLoadingChange($event)"></event-list>
+  <h1>Register</h1>
+  <!--<event-list (loadingChange)="eventListLoadingChange($event)"></event-list>-->
+  <div *ngIf="activeStep >= 1">
+    <h5>Step 1 - Enter your Team Name</h5>
     <input [(ngModel)]="teamName" name="teamName" type="text" placeholder="Team Name" required>
+  </div>
+  <div *ngIf="activeStep >= 2">
+    <h5>Step 2 - Add Team Members</h5>
+    <h6 *ngFor="let memberName of memberNames">{{memberName}}</h6>
+    <input *ngIf="activeStep == 2" [(ngModel)]="teamMember" name="teamMember" type="text" placeholder="Member Name" required>
+    <button *ngIf="activeStep == 2" class="btn" (click)="addTeamMember()"><i class="fa fa-plus-circle"></i> Member</button>
+  </div>
+  <div *ngIf="activeStep >= 3">
+    <h5>Step 3 - Enter Team Password</h5>
     <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required>
     <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+  </div>
+  <div *ngIf="activeStep < 4">    
+    <button class="btn" (click)="nextStep()">Next <i class="fa fa-chevron-circle-right"></i></button>
+  </div>
+  <div *ngIf="activeStep >= 4">
+    <h5>Step 4 - All set for awesomeness...</h5>
     <button class="btn" [class.btn-warning]="error" [class.m-progress]="submitting" (click)="onRegister()">Register</button>
-    <button class="btn btn-default" [routerLink]="['/login']">Already Registered</button>
+  </div>
+  <div>
+    <hr>
+    <button class="btn btn-default" [routerLink]="['/login']">Already Registered - Login</button>
+  </div>
 </form>
 
 <rpc-loader [fullscreen]="true" [showIf]="loading"></rpc-loader>

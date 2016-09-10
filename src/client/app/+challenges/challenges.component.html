@@ -1,9 +1,5 @@
 <rpc-navbar></rpc-navbar>
 <h1 class="text-center">Challenges</h1>
-<button class="btn center-block">Challenge 1</button>
-<button class="btn center-block">Challenge 2</button>
-<button class="btn center-block">Challenge 3</button>
-<button class="btn center-block">Challenge 4</button>
-<button class="btn center-block">Challenge 5</button>
-<button class="btn center-block">Challenge 6</button>
-<button class="btn center-block">Challenge 7</button>
+<button class="btn center-block" *ngFor="let challenge of challenges" [routerLink]="['/challenge/', challenge.id]">
+    {{challenge.name}}
+</button>

@@ -30,7 +30,6 @@ export class RegisterService extends ServiceBase {
     }
 
     private handleSuccess(response: Response) {
-        console.log(response);
         return response.json();
     }
 
@@ -46,7 +45,6 @@ export class RegisterService extends ServiceBase {
             default:
                 break;
         }
-        console.error(error);
         return Observable.throw(errMsg || 'Server error');
     }
 }

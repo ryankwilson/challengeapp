@@ -50,7 +50,7 @@ input {
   padding: 8px;
 }
 
-button {
+/*button {
   background-color: #444444;
   border-style: none;
   color: rgba(255, 255, 255, 0.87);
@@ -64,7 +64,7 @@ button {
 
 button:hover {
   background-color: #aaaaaa;
-}
+}*/
 
 /***********************************************/
 /**********************************************/
@@ -95,6 +95,7 @@ form {
 form h1 {
   box-sizing: border-box;
   padding: 20px;
+  color: orangered;
 }
 
 input {
@@ -139,8 +140,31 @@ button {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
+button:hover,
+button:focus {
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+  color: mediumvioletred !important;
+}
+
+.alert {
+  font-family: 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  margin: 20px;
+}
+
+.alert-danger {
+  background: orangered;
+  color: white;
+  
+}
+
+.btn-warning {
+  background-color: orangered;
+}
+
+.btn-warning:hover {
+  background-color: orangered;
+  color: black !important;
 }
 
 /********************************************************/

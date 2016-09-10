@@ -11,6 +11,7 @@ import { RegisterService } from './register.service';
 export class RegisterComponent {
 
     teamName: string;
+    teamMember: string;
     password: string;
     confirmPassword: string;
     team: ITeam;
@@ -18,9 +19,20 @@ export class RegisterComponent {
     errorMessage: string;
     submitting: boolean = false;
     loading: boolean = false;
+    activeStep: number = 1;
+    memberNames: Array<string> = new Array<string>();
 
     constructor(
         private _registerService: RegisterService) { }
+
+    nextStep() {
+        this.activeStep++;
+    }
+
+    addTeamMember() {
+        this.memberNames.push(this.teamMember);
+        this.teamMember = '';
+    }
 
     onRegister() {
         this.submitting = true;

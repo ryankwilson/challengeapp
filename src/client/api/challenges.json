@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "order": 1,
+        "name": "Challenge Uno",
+        "description": "First Challenge",
+        "clipUrl": "somelink"
+    },
+    {
+        "id": 2,
+        "order": 2,
+        "name": "Challenge Dos",
+        "description": "Second Challenge",
+        "clipUrl": "somelink"
+    }
+]
