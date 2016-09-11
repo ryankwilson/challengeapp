@@ -2,15 +2,29 @@
     {
         "id": 1,
         "order": 1,
-        "name": "Challenge Uno",
+        "name": "Challenge One",
         "description": "First Challenge",
         "clipUrl": "somelink"
     },
     {
         "id": 2,
         "order": 2,
-        "name": "Challenge Dos",
+        "name": "Challenge Two",
         "description": "Second Challenge",
+        "clipUrl": "somelink"
+    },
+    {
+        "id": 3,
+        "order": 3,
+        "name": "Challenge Three",
+        "description": "Third Challenge",
+        "clipUrl": "somelink"
+    },
+    {
+        "id": 4,
+        "order": 4,
+        "name": "Challenge Four",
+        "description": "Fourth Challenge",
         "clipUrl": "somelink"
     }
 ]
