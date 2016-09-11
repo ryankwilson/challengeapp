@@ -5,6 +5,9 @@ h6 {
     margin: 10px;
     color: mediumvioletred;
 }
+h6.alert {
+    color: white;
+}
 input {
     margin: 20px;
 }

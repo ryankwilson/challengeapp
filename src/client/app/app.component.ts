@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 import {
@@ -18,7 +19,7 @@ import { IdentityService, ChallengesService } from './services/index';
 @Component({
   moduleId: module.id,
   selector: 'sd-app',
-  viewProviders: [RegisterService, EventListService, HTTP_PROVIDERS, CookieService, IdentityService, ChallengesService],
+  viewProviders: [FormsModule, RegisterService, EventListService, HTTP_PROVIDERS, CookieService, IdentityService, ChallengesService],
   templateUrl: 'app.component.html',
   directives: [
     ROUTER_DIRECTIVES,
