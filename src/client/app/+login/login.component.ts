@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import { LoginService } from './login.service';
-import { LoginRequest, ILoginResponse } from '../shared/login';
+import { LoginRequest, ILoginResponse } from '../models/index';
 
 import { IdentityService } from '../services/index';
 

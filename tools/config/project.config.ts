@@ -16,6 +16,11 @@ export class ProjectConfig extends SeedConfig {
     'node_modules/font-awesome/fonts/**'
   ];
 
+  APIJSON_DEST = `${this.APP_DEST}/api`;
+  APIJSON_SRC = [
+    'src/client/api/**'
+  ];
+
   constructor() {
     super();
     // this.APP_TITLE = 'Put name of your app here';

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 
 import { ServiceBase } from '../services/servicebase';
-import { ILoginResponse, ILoginRequest } from '../shared/login';
+import { ILoginResponse, ILoginRequest } from '../models/index';
 
 @Injectable()
 export class LoginService extends ServiceBase {

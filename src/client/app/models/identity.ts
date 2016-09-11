@@ -1,4 +1,7 @@
-import { IIdentity } from '../interfaces/index';
+export interface IIdentity {
+    teamId: number;
+    teamName: string;
+}
 
 export class Identity implements IIdentity {
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IChallenge } from '../interfaces/index';
+import { IChallenge } from '../models/index';
 import { ChallengesService } from '../services/index';
 
 @Component({

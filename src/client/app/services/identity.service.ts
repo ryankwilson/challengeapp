@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { IIdentity } from '../interfaces/index';
-import { Identity } from '../classes/index';
+import { IIdentity, Identity } from '../models/index';
 import { CookieService } from 'angular2-cookie/core';
 
 @Injectable()

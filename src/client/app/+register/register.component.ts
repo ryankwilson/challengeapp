@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { ITeam } from '../shared/team';
+import { ITeam } from '../models/index';
 import { RegisterService } from './register.service';
 
 @Component({
@@ -62,7 +62,8 @@ export class RegisterComponent {
         this._registerService.registerTeam({
             teamName: this.teamName,
             password: this.password,
-            confirmPassword: this.confirmPassword
+            confirmPassword: this.confirmPassword,
+            eventId: 1
         })
             .subscribe(
             team => this.handleSuccess(team),

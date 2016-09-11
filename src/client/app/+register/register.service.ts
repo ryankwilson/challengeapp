@@ -4,8 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 
 import { ServiceBase } from '../services/servicebase';
-import { ITeam } from '../shared/team';
-import { IRegistrationRequest } from './registration-request';
+import { ITeam, IRegistrationRequest } from '../models/index';
 
 @Injectable()
 export class RegisterService extends ServiceBase {

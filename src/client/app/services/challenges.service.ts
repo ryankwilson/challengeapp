@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 
 import { ServiceBase } from './servicebase';
-import { IChallenge } from '../interfaces/index';
+import { IChallenge } from '../models/index';
 
 @Injectable()
 export class ChallengesService extends ServiceBase {
