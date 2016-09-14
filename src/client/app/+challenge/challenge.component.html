@@ -1,4 +1,8 @@
 <rpc-navbar></rpc-navbar>
 <h1 class="text-center">{{name}}</h1>
 <h5 class="text-center">{{description}}</h5>
-<iframe class="youtube-player center-block" [src]="embedUrl" frameborder="0"> </iframe>
+<div class="video-player center-block">
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" [src]="embedUrl"> </iframe>
+  </div>
+</div>

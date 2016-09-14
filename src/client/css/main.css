@@ -149,9 +149,9 @@ button:focus {
   color: black !important;
 }
 
-.youtube-player {
-  width: 600px;
-  height: 400px;
+.video-player {
+  max-width: 800px;
+  margin: 30px;
 }
 
 /********************************************************/
