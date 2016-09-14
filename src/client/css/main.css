@@ -149,6 +149,11 @@ button:focus {
   color: black !important;
 }
 
+.youtube-player {
+  width: 600px;
+  height: 400px;
+}
+
 /********************************************************/
 /* BUTTON ANIMATION FOR LOADING */
 @-webkit-keyframes ld {

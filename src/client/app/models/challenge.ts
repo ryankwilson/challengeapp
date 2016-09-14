@@ -1,7 +1,7 @@
 export interface IChallenge {
-    id: number;
-    order: number;
-    name: string;
-    description: string;
-    clipUrl: string;
+    ChallengeId: number;
+    Order: number;
+    Name: string;
+    Description: string;
+    ClipUrl: string;
 }

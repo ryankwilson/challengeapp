@@ -19,14 +19,25 @@ export class ChallengesService extends ServiceBase {
         return this._http.get(
             challengesUrl)
             .map(this.getEventChallengesSuccess)
-            .catch(this.getEventChallengesFailure);
+            .catch(this.handleServerError);
+    }
+
+    getChallenge(challengeId: number): Observable<IChallenge> {
+        var challengeUrl = this.buildUrl(`/challenges/${challengeId}`);
+        return this._http.get(challengeUrl)
+            .map(this.getChallengeSuccess)
+            .catch(this.handleServerError);
     }
 
     private getEventChallengesSuccess(response: Response) {
         return response.json();
     }
 
-    private getEventChallengesFailure(error: Response) {
+    private getChallengeSuccess(response: Response) {
+        return response.json();
+    }
+
+    private handleServerError(error: Response) {
         let errMsg = 'Something is wrong with the server!';
         return Observable.throw(errMsg || 'Server error');
     }
