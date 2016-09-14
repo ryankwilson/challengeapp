@@ -22,7 +22,9 @@ export class RegisterService extends ServiceBase {
             this.registerTeamUri,
             {
                 Name: request.teamName,
-                Password: request.password
+                Password: request.password,
+                EventId: request.eventId,
+                TeamMembers: request.members
             })
             .map(this.handleSuccess)
             .catch(this.handleError);

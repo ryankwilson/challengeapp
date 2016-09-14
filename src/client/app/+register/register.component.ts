@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { ITeam } from '../models/index';
+import { ITeam, ITeamMember, TeamMember } from '../models/index';
 import { RegisterService } from './register.service';
+import { IdentityService } from '../services/index';
 
 @Component({
     moduleId: module.id,
@@ -12,27 +14,28 @@ import { RegisterService } from './register.service';
 export class RegisterComponent {
 
     teamName: string;
-    teamMember: string;
+    memberName: string;
     password: string;
     confirmPassword: string;
     passwordsMatch: boolean;
-    team: ITeam;
     error: Boolean = false;
     errorMessage: string;
     submitting: boolean = false;
     loading: boolean = false;
     activeStep: number = 1;
-    memberNames: Array<string> = new Array<string>();
+    teamMembers: ITeamMember[] = new Array<TeamMember>();
     @ViewChild('regForm') public registerForm: NgForm;
 
     constructor(
-        private _registerService: RegisterService) { }
+        private _router: Router,
+        private _registerService: RegisterService,
+        private _identityService: IdentityService) { }
 
     nextStep() {
         // adding team members
         if (this.activeStep === 2) {
             this.addTeamMember();
-            if (this.memberNames.length > 0) {
+            if (this.teamMembers.length > 0) {
                 this.activeStep++;
             } else {
                 return;
@@ -45,9 +48,9 @@ export class RegisterComponent {
     }
 
     addTeamMember() {
-        if (this.teamMember && this.teamMember !== '') {
-            this.memberNames.push(this.teamMember);
-            this.teamMember = '';
+        if (this.memberName && this.memberName !== '') {
+            this.teamMembers.push(new TeamMember(this.memberName));
+            this.memberName = '';
         }
     }
 
@@ -63,16 +66,23 @@ export class RegisterComponent {
             teamName: this.teamName,
             password: this.password,
             confirmPassword: this.confirmPassword,
-            eventId: 1
+            eventId: 1,
+            members: this.teamMembers
         })
             .subscribe(
             team => this.handleSuccess(team),
             error => this.handleRegistrationError(error));
     }
 
-    handleSuccess(createdTeam: any) {
+    handleSuccess(createdTeam: ITeam) {
         this.submitting = false;
-        this.team = createdTeam;
+
+        this._identityService.identity = {
+            teamId: createdTeam.TeamId,
+            teamName: createdTeam.Name
+        };
+
+        this._router.navigate(['/challenges/1']);
     }
 
     handleRegistrationError(error: any) {

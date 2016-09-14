@@ -14,12 +14,14 @@ export class ChallengesComponent implements OnInit {
 
     eventId: number;
     challenges: IChallenge[];
+    loading: boolean;
 
     constructor(
         private route: ActivatedRoute,
         private challengesService: ChallengesService) { }
 
     ngOnInit() {
+        this.loading = true;
         this.route.params.subscribe(params => {
             this.eventId = +params['id'];
         });
@@ -31,11 +33,12 @@ export class ChallengesComponent implements OnInit {
     }
 
     private getEventChallengesSuccess(challenges: IChallenge[]) {
+        this.loading = false;
         this.challenges = challenges;
     }
 
     private getEventchallengesFailure(error: string) {
-        debugger;
+        this.loading = false;
     }
 
 }

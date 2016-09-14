@@ -131,7 +131,13 @@ button:focus {
 .alert-danger {
   background: orangered;
   color: white;
-  
+}
+
+.input-alert {
+  padding: 5px;
+  background: orangered;
+  color: white !important;
+  border-radius: 3px;
 }
 
 .btn-warning {

@@ -12,16 +12,16 @@
   </div>
   <div *ngIf="activeStep >= 2">
     <h5>Step 2 - Add Team Members</h5>
-    <h6 *ngFor="let memberName of memberNames">{{memberName}}</h6>
-    <input *ngIf="activeStep == 2" [(ngModel)]="teamMember" name="teamMember" type="text" placeholder="Member Name" [required]="memberNames.length == 0">
+    <h6 *ngFor="let teamMember of teamMembers">{{teamMember.name}}</h6>
+    <input *ngIf="activeStep == 2" [(ngModel)]="memberName" name="memberName" type="text" placeholder="Member Name" [required]="teamMembers.length == 0">
     <button *ngIf="activeStep == 2" class="btn" (click)="addTeamMember()"><i class="fa fa-plus-circle"></i> Member</button>
   </div>
   <div *ngIf="activeStep >= 3">
     <h5>Step 3 - Enter Team Password</h5>
     <input [(ngModel)]="password" (ngModelChange)="passwordChanged($event)" name="password" type="password" placeholder="Password" required minlength="4" maxlength="12" pattern="[!@#$%^&*()_+-=A-Za-z\d]{4,12}$">
     <input [(ngModel)]="confirmPassword" (ngModelChange)="passwordChanged($event)" name="confirmPassword" type="password" placeholder="Confirm Password" required minlength="4" maxlength="12" pattern="[!@#$%^&*()_+-=A-Za-z\d]{4,12}$">
-    <h6 *ngIf="!passwordsMatch" class="alert alert-danger text-center">Passwords must match!</h6>
-    <h6 *ngIf="regForm.form.invalid" class="alert alert-danger">4-12 characters</h6>
+    <h6 *ngIf="!passwordsMatch" class="input-alert text-center">Passwords must match!</h6>
+    <h6 *ngIf="regForm.form.invalid" class="input-alert text-center">4-12 characters</h6>
   </div>
   <div *ngIf="activeStep < 4">    
     <button class="btn" (click)="nextStep()">Next <i class="fa fa-chevron-circle-right"></i></button>
