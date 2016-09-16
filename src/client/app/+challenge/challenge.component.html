@@ -11,3 +11,21 @@
 <div *ngFor="#file_src of file_srcs">  
     <img src='{{ file_src }}' width="80%" class="center-block"/>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Submit your {{name}} photo!</h4>
+      </div>
+      <div class="modal-body">
+        <img src="{{photo}}" width="90%" class="center-block">
+      </div>
+      <div class="modal-footer modal-center">
+        <button type="button" class="btn" data-dismiss="modal">Try again...</button>
+        <button type="button" class="btn btn-default">Submit Photo!</button>
+      </div>
+    </div>
+  </div>
+</div>

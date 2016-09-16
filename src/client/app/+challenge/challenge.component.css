@@ -3,3 +3,7 @@ img {
     border: 1px solid black;
     text-align: center;
 }
+
+.modal-center {
+    text-align: center;
+}
