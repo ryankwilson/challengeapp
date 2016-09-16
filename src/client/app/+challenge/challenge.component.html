@@ -6,4 +6,9 @@
   </div>
 </div>
 <h5 class="text-center">{{description}}</h5>
- <input class="center-block" type="file" accept="image/*" capture="camera">
+<div>  
+    <input type="file" accept="image/*" (change)="fileChange(input)" #input />
+</div>  
+<div *ngFor="#file_src of file_srcs">  
+    <img src='{{ file_src }}' width="80%" class="center-block"/>
+</div>  
