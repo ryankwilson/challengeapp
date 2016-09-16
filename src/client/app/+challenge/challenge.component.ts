@@ -41,6 +41,10 @@ export class ChallengeComponent implements OnInit {
       );
   }
 
+  onFaceOff(input: any) {
+    input.click();
+  }
+
   fileChange(input: any) {
     // Loop through each picture file
     for (var i = 0; i < input.files.length; i++) {

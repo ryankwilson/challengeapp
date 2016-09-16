@@ -6,9 +6,8 @@
   </div>
 </div>
 <h5 class="text-center">{{description}}</h5>
-<div>  
-    <input type="file" accept="image/*" (change)="fileChange(input)" #input />
-</div>  
+<button class="btn btn-default center-block" (click)="onFaceOff(input)">Face Off!</button>
+<input class="hidden" type="file" accept="image/*" (change)="fileChange(input)" #input />
 <div *ngFor="#file_src of file_srcs">  
     <img src='{{ file_src }}' width="80%" class="center-block"/>
-</div>  
+</div>
