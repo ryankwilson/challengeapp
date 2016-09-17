@@ -110,7 +110,7 @@ input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
  visibility: visible !important;
 }
 input.ng-invalid:not(form)  {
-  border-bottom: solid 1px orangered;
+  border-bottom: solid 1px rgb(220, 45, 130);
 }
 
 button {
@@ -141,23 +141,23 @@ button:focus {
 }
 
 .alert-danger {
-  background: orangered;
+  background: rgb(220, 45, 130);
   color: white;
 }
 
 .input-alert {
   padding: 5px;
-  background: orangered;
+  background: rgb(220, 45, 130);
   color: white !important;
   border-radius: 3px;
 }
 
 .btn-warning {
-  background-color: orangered;
+  background-color: rgb(220, 45, 130);
 }
 
 .btn-warning:hover {
-  background-color: orangered;
+  background-color: rgb(220, 45, 130);
   color: black !important;
 }
 
