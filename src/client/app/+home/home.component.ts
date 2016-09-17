@@ -14,6 +14,7 @@ export class HomeComponent {
 
   timeleft: string;
   eventLive: boolean = false;
+  allowLogin: boolean = false;
 
   constructor() {
     var target_date = new Date(2016, 10, 13, 19, 0, 0);
@@ -23,6 +24,10 @@ export class HomeComponent {
     count.countdown(function (t: any) {
       self.timeleft = self.formatTimeString(t);
     });
+  }
+
+  trigger() {
+    this.allowLogin = !this.allowLogin;
   }
 
   private formatTimeString(t: any): string {

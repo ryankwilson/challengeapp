@@ -14,7 +14,12 @@ h6 {
 }
 
 p {
-    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+    max-width: 500px;
 }
 
 .countdown {
@@ -23,6 +28,22 @@ p {
     padding: 5px;
     text-align: center;
     width: 250px;
+    height: 75px;;
+}
+
+.login {
+    text-align: center;
+    font-size: 22px;
+    margin: auto;
+    padding: 5px;
+    width: 250px;
+    height: 75px;
+    background: transparent;
+    color: white;
+    box-shadow: 0 0 0 0;
+    border: 2px solid white;
+    border-radius: 8px;
+    text-transform: uppercase;
 }
 
 hr {

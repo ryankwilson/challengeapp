@@ -2,21 +2,30 @@
 <h2 class="text-center">Face Off</h2>
 
 <div class="container">
-    <div class="countdown vertical-center-row">
+    <div class="countdown vertical-center-row" *ngIf="!allowLogin">
         <h6>THE CHALLENGE BEGINS IN</h6>
         <span><hr></span>
         <h6>{{timeleft}}</h6>
     </div>
+    <div class="vertical-center-row" *ngIf="allowLogin">
+        <button class="btn login center-block fade in" (click)="onLogin()">Begin Challenge</button>
+    </div>
 </div>
 
-<p class="text-center">
-    She suspicion dejection saw instantly. Well deny may real one told yet saw hard dear. Bed chief house rapid right the. Set
-    noisy one state tears which. No girl oh part must fact high my he. Simplicity in excellence melancholy as remarkably
-    discovered. Own partiality motionless was old excellence she inquietude contrasted. Sister giving so wicket cousin of
-    an he rather marked. Of on game part body rich. Adapted mr savings venture it or comfort affixed friends. Or kind rest
-    bred with am shed then. In raptures building an bringing be. Elderly is detract tedious assured private so to visited.
-    Do travelling companions contrasted it. Mistress strongly remember up to. Ham him compass you proceed calling detract.
-    Better of always missed we person mr. September smallness northward situation few her certainty something.
-</p>
+<div class="container">
+    <div class="vertical-center-row">
+        <p>
+            She suspicion dejection saw instantly. Well deny may real one told yet saw hard dear. Bed chief house rapid right the. Set
+            noisy one state tears which. No girl oh part must fact high my he. Simplicity in excellence melancholy as remarkably
+            discovered. Own partiality motionless was old excellence she inquietude contrasted. Sister giving so wicket cousin
+            of an he rather marked. Of on game part body rich. Adapted mr savings venture it or comfort affixed friends.
+            Or kind rest bred with am shed then. In raptures building an bringing be. Elderly is detract tedious assured
+            private so to visited. Do travelling companions contrasted it. Mistress strongly remember up to. Ham him compass
+            you proceed calling detract. Better of always missed we person mr. September smallness northward situation few
+            her certainty something.
+        </p>
+    </div>
+</div>
+
 <button class="btn center-block" [routerLink]="['/login']" *ngIf="eventLive">Login</button>
 <button class="btn center-block" [routerLink]="['/register']">Register for Event</button>
