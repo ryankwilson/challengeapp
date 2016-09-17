@@ -5,12 +5,12 @@ nav h3 {
 }
 
 nav h3 span {
-  color: steelblue;
+  color: rgb(220, 45, 130);
 }
 
 nav {
   color: white;
-  background-color: rgb(60, 60, 60);
+  background-color: black;
   padding: 10px;
 }
 

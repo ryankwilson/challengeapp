@@ -3,11 +3,45 @@ h2,
 h3,
 h4,
 h5 {
-    color: #444444;
     font-weight: 600;
     margin: 20px;
 }
 
+h6 {
+    font-weight: 400;
+    margin: 4px;
+    font-size: 16px;
+}
+
 p {
     margin: 20px;
+}
+
+.countdown {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+}
+
+hr {
+    height: 4px;
+    border-radius: 2px;
+    background: white;
+    margin: 6px;
+}
+
+button {
+    background: white;
+    color: black;
+}
+
+.container {
+    display: table;
+    vertical-align: middle;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
 }

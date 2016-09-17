@@ -26,7 +26,7 @@ export class HomeComponent {
   }
 
   private formatTimeString(t: any): string {
-    return `${t.days} days ${t.hours} hours ${t.minutes} minutes ${t.seconds} seconds`;
+    return `${t.days} D | ${t.hours} H | ${t.minutes} M | ${t.seconds} S`;
   }
 
 }
