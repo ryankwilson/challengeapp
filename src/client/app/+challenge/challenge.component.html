@@ -13,18 +13,21 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Submit your {{name}} photo!</h4>
+        <h4 class="modal-title">{{name}}</h4>
       </div>
       <div class="modal-body">
-        <img src="{{photo}}" width="90%" class="center-block">
+        <img src="{{photo}}" class="photo" width="90%" class="center-block" *ngIf="!submittingPhoto" />
+        <div class="photo-uploading center-block" *ngIf="submittingPhoto">
+          <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
       </div>
       <div class="modal-footer modal-center">
-        <button type="button" class="btn" data-dismiss="modal">Try again...</button>
-        <button type="button" class="btn">Submit Photo!</button>
+        <button type="button" class="btn" data-dismiss="modal" [disabled]="submittingPhoto">Try again...</button>
+        <button type="button" class="btn" (click)="submitPhoto()" [disabled]="submittingPhoto">Submit Photo!</button>
       </div>
     </div>
   </div>

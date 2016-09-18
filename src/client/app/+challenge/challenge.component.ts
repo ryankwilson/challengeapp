@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SafeResourceUrl, DomSanitizationService } from '@angular/platform-browser';
 
 import { IdentityService, ChallengesService } from '../services/index';
@@ -18,14 +18,18 @@ export class ChallengeComponent implements OnInit {
   description: string;
   clipUrl: string;
   embedUrl: SafeResourceUrl;
+  submittingPhoto: boolean;
 
   file_srcs: string[] = [];
   photo: string;
 
   errorMessage: string;
 
+  modal: any;
+
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private identityService: IdentityService,
     private challengesService: ChallengesService,
     private sanitizer: DomSanitizationService) { }
@@ -40,6 +44,9 @@ export class ChallengeComponent implements OnInit {
       challenge => this.setChallenge(challenge),
       error => this.getChallengeError(error)
       );
+
+    var jq: any = $;
+    this.modal = jq('#myModal');
   }
 
   onFaceOff(input: any) {
@@ -48,22 +55,31 @@ export class ChallengeComponent implements OnInit {
 
   fileChange(input: any) {
     for (var i = 0; i < input.files.length; i++) {
-      // var img = document.createElement('img');
-      // img.src = window.URL.createObjectURL(input.files[i]);
       this.photo = window.URL.createObjectURL(input.files[i]);
 
       var reader = new FileReader();
 
       reader.addEventListener('load', (event: any) => {
-        // img.src = event.target.result;
-        // this.file_srcs.push(img.src);
         this.photo = event.target.result;
-        var jq: any = $;
-        jq('#myModal').modal('show');
+        this.modal.modal({
+          backdrop: 'static',
+          keyboard: false
+        });
+        this.modal.modal('show');
+        input.value = null;
       }, false);
 
       reader.readAsDataURL(input.files[i]);
     }
+  }
+
+  submitPhoto() {
+    this.submittingPhoto = true;
+    var self = this;
+    setTimeout(() => {
+      self.modal.modal('hide');
+      self.router.navigate(['/challenges/1']);
+    }, 2500);
   }
 
   private setChallenge(challenge: IChallenge) {
