@@ -1,7 +1,11 @@
 <nav>
   <h3>FACE OFF | <span>{{teamName}}</span></h3>
-  <div class="pull-right">
-    <a [routerLink]="['/challenges/1']">SEE CHALLENGES</a>
-    <a [routerLink]="['/']">HOME</a>
+  <div class="dropdown pull-right">
+    <i class="fa fa-bars dropdown-toggle" type="button" id="menu" data-toggle="dropdown"></i>
+    <ul class="dropdown-menu">
+      <li><a [routerLink]="['/challenges/1']">Challenges</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a [routerLink]="['/login']">Logout</a></li>
+    </ul>
   </div>
 </nav>

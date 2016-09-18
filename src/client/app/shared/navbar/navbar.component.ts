@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { IdentityService } from '../../services/index';
 
@@ -7,8 +6,7 @@ import { IdentityService } from '../../services/index';
   moduleId: module.id,
   selector: 'rpc-navbar',
   templateUrl: 'navbar.component.html',
-  styleUrls: ['navbar.component.css'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 

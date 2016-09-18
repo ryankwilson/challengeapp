@@ -1,3 +1,5 @@
+$primary-color: rgb(220, 45, 130);
+
 nav h3 {
   font-size: 14px;
   text-transform: uppercase;
@@ -5,18 +7,24 @@ nav h3 {
 }
 
 nav h3 span {
-  color: rgb(220, 45, 130);
+  color: $primary-color;
 }
 
 nav {
-  color: white;
   background-color: black;
   padding: 10px;
   border-bottom: 2px solid white;
+  a {
+    color: white;
+    padding-left: 6px;
+  }
+  a:hover {
+    color: $primary-color;
+    background: black;
+  }
 }
 
-nav a {
-  color: white;
-  border-left: 1px solid white;
-  padding-left: 4px;
+.dropdown-menu {
+  background: black;
+  margin: 13px -9px 0px 0px;
 }
