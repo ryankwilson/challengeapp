@@ -8,14 +8,17 @@ $secondary-color: rgb(250,190,65);
 
 img, .photo-uploading {
     margin: 10px;
-    max-width: 470px;
-    max-height: 200px;
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
     border: 1px solid black;
     text-align: center;
 }
 
 .photo-uploading {
     border: 0;
+    height: 200px;
 }
 
 .modal-center {

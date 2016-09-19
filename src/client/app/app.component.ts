@@ -14,12 +14,21 @@ import {
   MessageFlyoverComponent
 } from './shared/index';
 import { RegisterService } from './+register/index';
-import { IdentityService, ChallengesService } from './services/index';
+import { IdentityService, ChallengesService, PhotosService } from './services/index';
 
 @Component({
   moduleId: module.id,
   selector: 'sd-app',
-  viewProviders: [FormsModule, RegisterService, EventListService, HTTP_PROVIDERS, CookieService, IdentityService, ChallengesService],
+  viewProviders: [
+    FormsModule,
+    RegisterService,
+    EventListService,
+    HTTP_PROVIDERS,
+    CookieService,
+    IdentityService,
+    ChallengesService,
+    PhotosService
+  ],
   templateUrl: 'app.component.html',
   directives: [
     ROUTER_DIRECTIVES,

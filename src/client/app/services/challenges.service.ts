@@ -15,7 +15,6 @@ export class ChallengesService extends ServiceBase {
 
     getEventChallenges(eventId: number): Observable<IChallenge[]> {
         var challengesUrl = this.buildUrl(`/challenges/event/${eventId}`);
-        //var challengesUrl = '../../api/challenges.json';
         return this._http.get(
             challengesUrl)
             .map(this.getEventChallengesSuccess)

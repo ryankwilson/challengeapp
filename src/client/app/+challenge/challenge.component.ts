@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeResourceUrl, DomSanitizationService } from '@angular/platform-browser';
 
-import { IdentityService, ChallengesService } from '../services/index';
+import { IdentityService, ChallengesService, PhotosService } from '../services/index';
 import { IChallenge } from '../models/index';
 
 @Component({
   moduleId: module.id,
   templateUrl: 'challenge.component.html',
   styleUrls: ['challenge.component.css']
-  //viewProviders: [LoginService]
 })
 export class ChallengeComponent implements OnInit {
 
@@ -18,10 +17,12 @@ export class ChallengeComponent implements OnInit {
   description: string;
   clipUrl: string;
   embedUrl: SafeResourceUrl;
+  videoLoaded: boolean = true;
   submittingPhoto: boolean;
 
   file_srcs: string[] = [];
   photo: string;
+  file: File;
 
   errorMessage: string;
 
@@ -32,6 +33,7 @@ export class ChallengeComponent implements OnInit {
     private router: Router,
     private identityService: IdentityService,
     private challengesService: ChallengesService,
+    private photosService: PhotosService,
     private sanitizer: DomSanitizationService) { }
 
   ngOnInit() {
@@ -56,6 +58,7 @@ export class ChallengeComponent implements OnInit {
   fileChange(input: any) {
     for (var i = 0; i < input.files.length; i++) {
       this.photo = window.URL.createObjectURL(input.files[i]);
+      this.file = input.files[i];
 
       var reader = new FileReader();
 
@@ -76,10 +79,14 @@ export class ChallengeComponent implements OnInit {
   submitPhoto() {
     this.submittingPhoto = true;
     var self = this;
-    setTimeout(() => {
+
+    this.photosService.uploadFile(this.file).then((result) => {
+      console.log(`photo uploaded: ${result}`);
       self.modal.modal('hide');
       self.router.navigate(['/challenges/1']);
-    }, 2500);
+    }, (error) => {
+      console.error(`photo error: ${error}`);
+    });
   }
 
   private setChallenge(challenge: IChallenge) {
