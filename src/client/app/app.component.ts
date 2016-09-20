@@ -14,7 +14,12 @@ import {
   MessageFlyoverComponent
 } from './shared/index';
 import { RegisterService } from './+register/index';
-import { IdentityService, ChallengesService, PhotosService } from './services/index';
+import {
+  IdentityService,
+  ChallengesService,
+  PhotosService,
+  ChallengeResponsesService
+} from './services/index';
 
 @Component({
   moduleId: module.id,
@@ -27,7 +32,8 @@ import { IdentityService, ChallengesService, PhotosService } from './services/in
     CookieService,
     IdentityService,
     ChallengesService,
-    PhotosService
+    PhotosService,
+    ChallengeResponsesService
   ],
   templateUrl: 'app.component.html',
   directives: [

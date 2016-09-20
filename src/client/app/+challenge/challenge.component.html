@@ -1,3 +1,8 @@
+<div class="alert alert-danger fade in" *ngIf="error">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oh Snap!</strong> {{errorMessage}}
+</div>
+
 <rpc-navbar></rpc-navbar>
 <h1 class="text-center">{{name}}</h1>
 <div class="video-player center-block">

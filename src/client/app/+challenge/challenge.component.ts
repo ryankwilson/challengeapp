@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeResourceUrl, DomSanitizationService } from '@angular/platform-browser';
 
-import { IdentityService, ChallengesService, PhotosService } from '../services/index';
-import { IChallenge } from '../models/index';
+import { IdentityService, ChallengesService, ChallengeResponsesService, PhotosService } from '../services/index';
+import { IChallenge, IChallengeResponse } from '../models/index';
 
 @Component({
   moduleId: module.id,
@@ -19,9 +19,11 @@ export class ChallengeComponent implements OnInit {
   embedUrl: SafeResourceUrl;
   videoLoaded: boolean = true;
   submittingPhoto: boolean;
+  error: boolean;
 
   file_srcs: string[] = [];
   photo: string;
+  photoGuid: string;
   file: File;
 
   errorMessage: string;
@@ -33,6 +35,7 @@ export class ChallengeComponent implements OnInit {
     private router: Router,
     private identityService: IdentityService,
     private challengesService: ChallengesService,
+    private challengeResponsesService: ChallengeResponsesService,
     private photosService: PhotosService,
     private sanitizer: DomSanitizationService) { }
 
@@ -78,15 +81,42 @@ export class ChallengeComponent implements OnInit {
 
   submitPhoto() {
     this.submittingPhoto = true;
-    var self = this;
 
     this.photosService.uploadFile(this.file).then((result) => {
-      console.log(`photo uploaded: ${result}`);
-      self.modal.modal('hide');
-      self.router.navigate(['/challenges/1']);
+      this.photoGuid = <string>result;
+      this.makeChallengeResponse({
+        Id: null,
+        ChallengeId: this.id,
+        TeamId: this.identityService.identity.teamId,
+        Photo: this.photoGuid
+      });
     }, (error) => {
-      console.error(`photo error: ${error}`);
+      this.submittingPhoto = false;
+      this.error = true;
+      this.errorMessage = 'Photo could not be uploaded, please try again!';
     });
+  }
+
+  private makeChallengeResponse(challengeResponse: IChallengeResponse) {
+    this.challengeResponsesService.createChallengeResponse(challengeResponse)
+      .subscribe(
+        challengeResponse => this.getChallengeResponseSuccess(challengeResponse),
+        error => this.getChallengeResponseFailure(error)
+      );
+  }
+
+  private getChallengeResponseSuccess(challengeResponse: Number) {
+    this.gotoChallenges();
+  }
+
+  private getChallengeResponseFailure(error: string) {
+    this.error = true;
+    this.errorMessage = 'There was a problem submitting your photo, please try again!';
+  }
+
+  private gotoChallenges() {
+    this.modal.modal('hide');
+    this.router.navigate(['/challenges/1']);
   }
 
   private setChallenge(challenge: IChallenge) {
@@ -97,6 +127,7 @@ export class ChallengeComponent implements OnInit {
 
   private getChallengeError(error: string) {
     this.errorMessage = error;
+    this.error = true;
   }
 
 }
