@@ -5,7 +5,7 @@
     *ngFor="let challenge of challenges" 
     [routerLink]="['/challenge/', challenge.ChallengeId]"
     [class.completed]="challenge.Completed" 
-    [disabled]="challenge.Completed">
+    [disabled]="!challenge.NextChallenge">
     {{challenge.Name}}
     <i class="fa fa-check-circle pull-right" *ngIf="challenge.Completed"></i>
 </button>

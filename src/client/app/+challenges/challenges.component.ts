@@ -36,6 +36,20 @@ export class ChallengesComponent implements OnInit {
 
     private getEventChallengesByTeamSuccess(challenges: IChallengeByTeam[]) {
         this.loading = false;
+
+        let foundNext:boolean = false;
+        for(let i = 0; i < challenges.length-1; i++) {
+            if (challenges[i].Completed && !challenges[i+1].Completed) {
+                challenges[i+1].NextChallenge = true;
+                foundNext = true;
+                break;
+            }
+        }
+
+        if (!foundNext) {
+            challenges[0].NextChallenge = true;
+        }
+
         this.challenges = challenges;
     }
 
