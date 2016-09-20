@@ -11,11 +11,18 @@ import { IdentityService } from '../../services/index';
 export class NavbarComponent implements OnInit {
 
   teamName: string;
+  dropdown: any;
 
   constructor(private _identityService: IdentityService) { }
 
   ngOnInit() {
     this.teamName = this._identityService.identity.teamName;
+    this.dropdown = $('.dropdown-toggle');
+    debugger;
+  }
+
+  onDropdown() {
+    this.dropdown.dropdown();
   }
 
 }
