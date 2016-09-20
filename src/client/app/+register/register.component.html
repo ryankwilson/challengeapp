@@ -12,7 +12,7 @@
   </div>
   <div *ngIf="activeStep >= 2">
     <h5>Step 2 - Add Team Members</h5>
-    <h6 *ngFor="let teamMember of teamMembers">{{teamMember.name}}</h6>
+    <h6 *ngFor="let teamMember of teamMembers"><i class="fa fa-user"></i>{{teamMember.name}}</h6>
     <input *ngIf="activeStep == 2" [(ngModel)]="memberName" name="memberName" type="text" placeholder="Member Name" [required]="teamMembers.length == 0">
     <button *ngIf="activeStep == 2" class="btn" (click)="addTeamMember()"><i class="fa fa-plus-circle"></i> Member</button>
   </div>
@@ -31,7 +31,6 @@
     <button class="btn" [class.btn-warning]="error" [class.m-progress]="submitting" (click)="onRegister()" [disabled]="!regForm.valid || !passwordsMatch || submitting">Register</button>
   </div>
   <div>
-    <hr>
     <button class="btn btn-default" [routerLink]="['/login']">Already Registered - Login</button>
   </div>
 </form>

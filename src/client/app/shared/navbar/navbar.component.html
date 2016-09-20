@@ -5,7 +5,7 @@
     <ul class="dropdown-menu">
       <li><a [routerLink]="['/challenges/1']">Challenges</a></li>
       <li role="separator" class="divider"></li>
-      <li><a [routerLink]="['/login']">Logout</a></li>
+      <li><a (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </nav>

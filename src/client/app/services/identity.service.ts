@@ -28,4 +28,8 @@ export class IdentityService {
         this._cookieService.putObject(this._key, identity);
     }
 
+    public logout() {
+        this._cookieService.remove(this._key);
+    }
+
 }
