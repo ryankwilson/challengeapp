@@ -1,43 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IChallenge } from '../models/index';
-import { ChallengesService } from '../services/index';
+import { IChallengeByTeam } from '../models/index';
+import { ChallengesService, IdentityService } from '../services/index';
 
 @Component({
     moduleId: module.id,
     templateUrl: 'challenges.component.html',
-    styleUrls: [],
+    styleUrls: ['challenges.component.css'],
     viewProviders: []
 })
 export class ChallengesComponent implements OnInit {
 
     eventId: number;
-    challenges: IChallenge[];
+    challenges: IChallengeByTeam[];
     loading: boolean;
 
     constructor(
         private route: ActivatedRoute,
-        private challengesService: ChallengesService) { }
+        private challengesService: ChallengesService,
+        private identityService: IdentityService) { }
 
     ngOnInit() {
         this.loading = true;
         this.route.params.subscribe(params => {
             this.eventId = +params['id'];
         });
-        this.challengesService.getEventChallenges(this.eventId)
+        var teamId = this.identityService.identity.teamId;
+        this.challengesService.getEventChallengesByTeam(this.eventId, teamId)
             .subscribe(
-            challenges => this.getEventChallengesSuccess(challenges),
-            error => this.getEventchallengesFailure(error)
+            challenges => this.getEventChallengesByTeamSuccess(challenges),
+            error => this.getEventchallengesByTeamFailure(error)
             );
     }
 
-    private getEventChallengesSuccess(challenges: IChallenge[]) {
+    private getEventChallengesByTeamSuccess(challenges: IChallengeByTeam[]) {
         this.loading = false;
         this.challenges = challenges;
     }
 
-    private getEventchallengesFailure(error: string) {
+    private getEventchallengesByTeamFailure(error: string) {
         this.loading = false;
     }
 

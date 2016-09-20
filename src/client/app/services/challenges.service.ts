@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 
 import { ServiceBase } from './servicebase';
-import { IChallenge } from '../models/index';
+import { IChallenge, IChallengeByTeam } from '../models/index';
 
 @Injectable()
 export class ChallengesService extends ServiceBase {
@@ -21,6 +21,13 @@ export class ChallengesService extends ServiceBase {
             .catch(this.handleServerError);
     }
 
+    getEventChallengesByTeam(eventId: number, teamId: number): Observable<IChallengeByTeam[]> {
+        var url = this.buildUrl(`/challenges/event/${eventId}/team/${teamId}`);
+        return this._http.get(url)
+            .map(this.getEventChallengesByTeamSuccess)
+            .catch(this.handleServerError);
+    }
+
     getChallenge(challengeId: number): Observable<IChallenge> {
         var challengeUrl = this.buildUrl(`/challenges/${challengeId}`);
         return this._http.get(challengeUrl)
@@ -29,6 +36,10 @@ export class ChallengesService extends ServiceBase {
     }
 
     private getEventChallengesSuccess(response: Response) {
+        return response.json();
+    }
+
+    private getEventChallengesByTeamSuccess(response: Response) {
         return response.json();
     }
 

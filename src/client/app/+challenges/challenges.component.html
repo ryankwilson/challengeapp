@@ -1,7 +1,11 @@
 <rpc-navbar></rpc-navbar>
 <h1 class="text-center">Challenges</h1>
 <rpc-loader [showIf]="loading"></rpc-loader>
-<button class="btn center-block" *ngFor="let challenge of challenges" [routerLink]="['/challenge/', challenge.ChallengeId]">
+<button class="btn center-block" 
+    *ngFor="let challenge of challenges" 
+    [routerLink]="['/challenge/', challenge.ChallengeId]"
+    [class.completed]="challenge.Completed" 
+    [disabled]="challenge.Completed">
     {{challenge.Name}}
-    <i class="fa fa-check-circle pull-right"></i>
+    <i class="fa fa-check-circle pull-right" *ngIf="challenge.Completed"></i>
 </button>
