@@ -9,3 +9,7 @@
     {{challenge.Name}}
     <i class="fa fa-check-circle pull-right" *ngIf="challenge.Completed"></i>
 </button>
+<div *ngIf="allChallengesCompleted" class="all-complete text-center">
+    <h3 class="text-center">Aww yay!  You completed them all!</h3>
+    <p>What do I do now?</p>  
+</div>

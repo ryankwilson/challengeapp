@@ -14,6 +14,7 @@ export class ChallengesComponent implements OnInit {
 
     eventId: number;
     challenges: IChallengeByTeam[];
+    allChallengesCompleted: boolean;
     loading: boolean;
 
     constructor(
@@ -37,17 +38,25 @@ export class ChallengesComponent implements OnInit {
     private getEventChallengesByTeamSuccess(challenges: IChallengeByTeam[]) {
         this.loading = false;
 
-        let foundNext:boolean = false;
-        for(let i = 0; i < challenges.length-1; i++) {
-            if (challenges[i].Completed && !challenges[i+1].Completed) {
-                challenges[i+1].NextChallenge = true;
-                foundNext = true;
-                break;
-            }
+        // are all challenges complete?
+        var notCompleted = challenges.find(x => !x.Completed);
+        if (!notCompleted) {
+            this.allChallengesCompleted = true;
         }
 
-        if (!foundNext) {
-            challenges[0].NextChallenge = true;
+        if (!this.allChallengesCompleted) {
+            let foundNext: boolean = false;
+            for (let i = 0; i < challenges.length - 1; i++) {
+                if (challenges[i].Completed && !challenges[i + 1].Completed) {
+                    challenges[i + 1].NextChallenge = true;
+                    foundNext = true;
+                    break;
+                }
+            }
+
+            if (!foundNext) {
+                challenges[0].NextChallenge = true;
+            }
         }
 
         this.challenges = challenges;
