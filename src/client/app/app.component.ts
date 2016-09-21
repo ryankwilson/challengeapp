@@ -18,7 +18,8 @@ import {
   IdentityService,
   ChallengesService,
   PhotosService,
-  ChallengeResponsesService
+  ChallengeResponsesService,
+  EventsService
 } from './services/index';
 
 @Component({
@@ -33,7 +34,8 @@ import {
     IdentityService,
     ChallengesService,
     PhotosService,
-    ChallengeResponsesService
+    ChallengeResponsesService,
+    EventsService
   ],
   templateUrl: 'app.component.html',
   directives: [

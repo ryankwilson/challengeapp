@@ -5,3 +5,4 @@ export * from './registration';
 export * from './team';
 export * from './challengeResponse';
 export * from './challengeByTeam';
+export * from './event';

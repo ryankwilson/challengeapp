@@ -1,0 +1,9 @@
+<div class="admin-container">
+    <h1>Admin Portal</h1>
+    <p>Select Event to Manage</p>
+    <ul>
+        <li *ngFor="let ev of events">
+            <a [routerLink]="['/admin/events', ev.EventId]">{{ev.Name}}</a>
+        </li>
+    </ul>
+</div>
