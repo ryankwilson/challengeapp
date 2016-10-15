@@ -7,7 +7,7 @@ import { RegisterRoutes } from './+register/index';
 import { ChallengesRoutes } from './+challenges/index';
 import { ChallengeRoutes } from './+challenge/index';
 import { AdminRoutes } from './admin/+admin/index';
-import { AdminEventsRoutes } from './admin/+events/index';
+import { AdminEventsRoutes, AdminEventsTeamsRoutes, AdminEventsResponsesRoutes } from './admin/+events/index';
 
 const routes: RouterConfig = [
   ...AboutRoutes,
@@ -17,7 +17,9 @@ const routes: RouterConfig = [
   ...ChallengesRoutes,
   ...ChallengeRoutes,
   ...AdminRoutes,
-  ...AdminEventsRoutes
+  ...AdminEventsRoutes,
+  ...AdminEventsTeamsRoutes,
+  ...AdminEventsResponsesRoutes
 ];
 
 export const APP_ROUTER_PROVIDERS = [

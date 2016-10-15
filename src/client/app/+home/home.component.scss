@@ -22,6 +22,21 @@ p {
     max-width: 500px;
 }
 
+a {
+    color: white;
+}
+
+ul {
+    max-width: 250px;
+}
+
+.logo {
+    display: block;
+    width: 250px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 .countdown {
     border: 2px solid white;
     border-radius: 8px;
@@ -29,6 +44,18 @@ p {
     text-align: center;
     width: 250px;
     height: 75px;;
+}
+
+.welcome-message {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+}
+
+.more-info-link {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
 }
 
 .login {

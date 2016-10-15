@@ -4,31 +4,20 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 
 import { ServiceBase } from './servicebase';
-import { IEvent, ITeam } from '../models/index';
+import { ITeam } from '../models/index';
 
 @Injectable()
-export class EventsService extends ServiceBase {
+export class TeamsService extends ServiceBase {
 
     constructor(private _http: Http) {
         super();
     }
 
-    getEvents(): Observable<IEvent[]> {
-        var url = this.buildUrl('/events');
-        return this._http.get(url)
-            .map(this.mapEvents)
-            .catch(this.handleError);
-    }
-
-    getRegisteredTeams(eventId: number): Observable<ITeam[]> {
-        var url = this.buildUrl(`/events/${eventId}/teams`);
+    getTeamsByEvent(eventId: number): Observable<ITeam[]> {
+        var url = this.buildUrl('/teams/event/' + eventId);
         return this._http.get(url)
             .map(this.mapTeams)
             .catch(this.handleError);
-    }
-
-    private mapEvents(response: Response) {
-        return response.json();
     }
 
     private mapTeams(response: Response) {

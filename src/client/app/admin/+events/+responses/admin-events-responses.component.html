@@ -1,0 +1,8 @@
+<div class="admin-container">
+    <h1>{{eventName}} - Responses</h1>
+    <ul>
+        <li *ngFor="let challenge of challenges">
+            {{challenge.Name}} (<a (click)="downloadPhotos(challenge.ChallengeId)">Download Photos</a>)
+        </li>
+    </ul>
+</div>

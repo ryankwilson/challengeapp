@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IEvent } from '../../models/index';
-
 @Component({
     moduleId: module.id,
     templateUrl: 'admin-events.component.html',

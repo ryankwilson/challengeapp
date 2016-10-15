@@ -1,5 +1,5 @@
-<h5 class="text-center">Rock Point Students</h5>
-<h2 class="text-center">Face Off</h2>
+<img src="/assets/rpc_students.png" class="logo center-block" alt="RPC Students">
+<img src="/assets/faceoff_logo.png" class="logo center-block" alt="Face Off">
 
 <div class="container">
     <div class="countdown vertical-center-row" *ngIf="!allowLogin">
@@ -13,22 +13,28 @@
 </div>
 
 <div class="container">
-    <div class="vertical-center-row">
-        <p>
-            She suspicion dejection saw instantly. Well deny may real one told yet saw hard dear. Bed chief house rapid right the. Set
-            noisy one state tears which. No girl oh part must fact high my he. Simplicity in excellence melancholy as remarkably
-            discovered. Own partiality motionless was old excellence she inquietude contrasted. Sister giving so wicket cousin
-            of an he rather marked. Of on game part body rich. Adapted mr savings venture it or comfort affixed friends.
-            Or kind rest bred with am shed then. In raptures building an bringing be. Elderly is detract tedious assured
-            private so to visited. Do travelling companions contrasted it. Mistress strongly remember up to. Ham him compass
-            you proceed calling detract. Better of always missed we person mr. September smallness northward situation few
-            her certainty something.
-        </p>
+    <div class="vertical-center-row welcome-message">
+        Welcome to <br>
+        <b>Face Off 2016!!</b><br><br>
+        Here is what you'll need:
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-chevron-circle-right"></i>Oreos</li>
+            <li><i class="fa-li fa fa-chevron-circle-right"></i>Toilet Paper</li>
+            <li><i class="fa-li fa fa-chevron-circle-right"></i>Toothpicks</li>
+            <li><i class="fa-li fa fa-chevron-circle-right"></i>Marshmallows</li>
+        </ul>
     </div>
 </div>
 
 <div class="container">
     <div class="vertical-center-row">
-        <button class="btn center-block" [routerLink]="['/register']">Register Now</button>
+        <button class="btn center-block" [routerLink]="['/register']" [disabled]="!allowLogin">Register Now</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="vertical-center-row more-info-link">
+        For More Info <br>
+        <b><a href="http://rockpointchurch.com/faceoff">rockpointchurch.com/faceoff</a></b>
     </div>
 </div>
