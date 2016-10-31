@@ -1,5 +1,10 @@
 <rpc-navbar></rpc-navbar>
 <h1 class="text-center">Challenges</h1>
+<div class="video-player center-block" *ngIf="!anyChallengesCompleted">
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe id="videoFrame" class="embed-responsive-item" [src]="introUrl"></iframe>
+  </div>
+</div>
 <rpc-loader [showIf]="loading"></rpc-loader>
 <button class="btn center-block" 
     *ngFor="let challenge of challenges" 

@@ -17,7 +17,7 @@ export class HomeComponent {
   allowLogin: boolean = false;
 
   constructor() {
-    var target_date = new Date(2016, 10, 13, 19, 0, 0);
+    var target_date = new Date(2016, 10, 12, 19, 0, 0);
     var current_date = new Date();
     var count = new Countdown(target_date, current_date);
     var self = this;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SafeResourceUrl, DomSanitizationService } from '@angular/platform-browser';
 
 import { IChallengeByTeam } from '../models/index';
 import { ChallengesService, IdentityService } from '../services/index';
@@ -14,13 +15,18 @@ export class ChallengesComponent implements OnInit {
 
     eventId: number;
     challenges: IChallengeByTeam[];
+    anyChallengesCompleted: boolean;
     allChallengesCompleted: boolean;
     loading: boolean;
+    introUrl: SafeResourceUrl;
 
     constructor(
         private route: ActivatedRoute,
         private challengesService: ChallengesService,
-        private identityService: IdentityService) { }
+        private identityService: IdentityService,
+        private sanitizer: DomSanitizationService) {
+            this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/C-yYyvmjqfY?autoplay=1');
+         }
 
     ngOnInit() {
         this.loading = true;
@@ -37,6 +43,12 @@ export class ChallengesComponent implements OnInit {
 
     private getEventChallengesByTeamSuccess(challenges: IChallengeByTeam[]) {
         this.loading = false;
+
+        // at least 1 challenge complete
+        var challengesCompleted = challenges.find(x => x.Completed);
+        if (challengesCompleted) {
+            this.anyChallengesCompleted = true;
+        }
 
         // are all challenges complete?
         var notCompleted = challenges.find(x => !x.Completed);

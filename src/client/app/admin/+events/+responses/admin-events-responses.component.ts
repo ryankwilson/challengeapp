@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IEvent, IChallenge } from '../../../models/index';
-import { EventsService, ChallengesService } from '../../../services/index';
+import { EventsService, ChallengesService, ChallengeResponsesService } from '../../../services/index';
 
 @Component({
     moduleId: module.id,
@@ -20,7 +20,8 @@ export class AdminEventsResponsesComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private eventsService: EventsService,
-        private challengesService: ChallengesService) { }
+        private challengesService: ChallengesService,
+        private challengeResponsesService: ChallengeResponsesService) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {

@@ -25,14 +25,15 @@
         <h4 class="modal-title">{{name}}</h4>
       </div>
       <div class="modal-body">
+        <button type="button" class="btn btn-default" (click)="submitPhoto()" [disabled]="submittingPhoto">Submit Photo!</button>
         <img src="{{photo}}" class="photo" width="90%" class="center-block" *ngIf="!submittingPhoto" />
         <div class="photo-uploading center-block" *ngIf="submittingPhoto">
           <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          <p>Please wait for your photo to finish uploading...</p>
         </div>
       </div>
       <div class="modal-footer modal-center">
         <button type="button" class="btn" data-dismiss="modal" [disabled]="submittingPhoto">Try again...</button>
-        <button type="button" class="btn" (click)="submitPhoto()" [disabled]="submittingPhoto">Submit Photo!</button>
       </div>
     </div>
   </div>
