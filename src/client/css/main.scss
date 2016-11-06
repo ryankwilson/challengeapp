@@ -41,12 +41,6 @@ body {
   background-size: cover;
 }
 
- body.modal-open {
-    overflow: hidden;
-    position:fixed;
-    width: 100%;
-}
-
 p {
   font-family: $secondary-font;
   /*font-weight: 300;*/
