@@ -1,20 +1,28 @@
 <rpc-navbar></rpc-navbar>
 <h1 class="text-center">Challenges</h1>
+<rpc-loader [showIf]="loading"></rpc-loader>
 <div class="video-player center-block" *ngIf="!anyChallengesCompleted">
   <div class="embed-responsive embed-responsive-16by9">
     <iframe id="videoFrame" class="embed-responsive-item" [src]="introUrl"></iframe>
   </div>
 </div>
-<rpc-loader [showIf]="loading"></rpc-loader>
-<button class="btn center-block" 
-    *ngFor="let challenge of challenges" 
-    [routerLink]="['/challenge/', challenge.ChallengeId]"
-    [class.completed]="challenge.Completed" 
-    [disabled]="!challenge.NextChallenge">
-    {{challenge.Name}}
-    <i class="fa fa-check-circle pull-right" *ngIf="challenge.Completed"></i>
-</button>
+<div class="video-player center-block" *ngIf="allChallengesCompleted">
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe id="videoFrame" class="embed-responsive-item" [src]="outroUrl"></iframe>
+  </div>
+</div>
 <div *ngIf="allChallengesCompleted" class="all-complete text-center">
-    <h3 class="text-center">Aww yay!  You completed them all!</h3>
-    <p>What do I do now?</p>  
+  <h3 class="text-center">Great job!</h3>
+  <p class="text-center">
+    We’ll see you and your friend tomorrow! Make sure to come to both services<br />
+    <b>> 9:00 and 10:45 <</b> <br />
+    to see all the winners and claim your awesome prizes!
+  </p>
+</div>
+<div *ngIf="!allChallengesCompleted">
+  <button class="btn center-block" *ngFor="let challenge of challenges" [routerLink]="['/challenge/', challenge.ChallengeId]"
+    [class.completed]="challenge.Completed" [disabled]="!challenge.NextChallenge">
+      {{challenge.Name}}
+      <i class="fa fa-check-circle pull-right" *ngIf="challenge.Completed"></i>
+  </button>
 </div>

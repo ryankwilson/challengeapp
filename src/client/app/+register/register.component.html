@@ -8,7 +8,7 @@
   <!--<event-list (loadingChange)="eventListLoadingChange($event)"></event-list>-->
   <div *ngIf="activeStep >= 1">
     <h5>Step 1 - Enter your Team Name</h5>
-    <input [(ngModel)]="teamName" name="teamName" type="text" placeholder="Team Name" required>
+    <input [(ngModel)]="teamName" name="teamName" type="text" placeholder="Team Name" maxlength="20" required>
   </div>
   <div *ngIf="activeStep >= 2">
     <h5>Step 2 - Add Team Members</h5>
