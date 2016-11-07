@@ -20,6 +20,7 @@ export class ChallengeComponent implements OnInit {
   videoLoaded: boolean = true;
   submittingPhoto: boolean;
   error: boolean;
+  showModal: boolean;
 
   file_srcs: string[] = [];
   photo: string;
@@ -60,6 +61,8 @@ export class ChallengeComponent implements OnInit {
 
   fileChange(input: any) {
     for (var i = 0; i < input.files.length; i++) {
+      this.showModal = true;
+
       this.photo = window.URL.createObjectURL(input.files[i]);
       this.file = input.files[i];
 
@@ -67,11 +70,11 @@ export class ChallengeComponent implements OnInit {
 
       reader.addEventListener('load', (event: any) => {
         this.photo = event.target.result;
-        this.modal.modal({
-          backdrop: 'static',
-          keyboard: false
-        });
-        this.modal.modal('show');
+        // this.modal.modal({
+        //   backdrop: 'static',
+        //   keyboard: false
+        // });
+        // this.modal.modal('show');
         input.value = null;
       }, false);
 
@@ -97,11 +100,16 @@ export class ChallengeComponent implements OnInit {
     });
   }
 
+  tryAgain() {
+    this.submittingPhoto = false;
+    this.showModal = false;
+  }
+
   private makeChallengeResponse(challengeResponse: IChallengeResponse) {
     this.challengeResponsesService.createChallengeResponse(challengeResponse)
       .subscribe(
-        challengeResponse => this.getChallengeResponseSuccess(challengeResponse),
-        error => this.getChallengeResponseFailure(error)
+      challengeResponse => this.getChallengeResponseSuccess(challengeResponse),
+      error => this.getChallengeResponseFailure(error)
       );
   }
 
@@ -112,6 +120,7 @@ export class ChallengeComponent implements OnInit {
   private getChallengeResponseFailure(error: string) {
     this.error = true;
     this.errorMessage = 'There was a problem submitting your photo, please try again!';
+    this.submittingPhoto = false;
   }
 
   private gotoChallenges() {

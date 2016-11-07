@@ -19,6 +19,7 @@ export class ChallengesComponent implements OnInit {
     allChallengesCompleted: boolean;
     loading: boolean;
     introUrl: SafeResourceUrl;
+    outroUrl: SafeResourceUrl;
 
     constructor(
         private route: ActivatedRoute,
@@ -26,7 +27,8 @@ export class ChallengesComponent implements OnInit {
         private identityService: IdentityService,
         private sanitizer: DomSanitizationService) {
             this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/C-yYyvmjqfY?autoplay=1');
-         }
+            this.outroUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/C-yYyvmjqfY?autoplay=1');
+        }
 
     ngOnInit() {
         this.loading = true;

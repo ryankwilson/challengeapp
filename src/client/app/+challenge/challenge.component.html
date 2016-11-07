@@ -4,37 +4,35 @@
 </div>
 
 <rpc-navbar></rpc-navbar>
-<h1 class="text-center">{{name}}</h1>
-<div class="video-player center-block">
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe id="videoFrame" class="embed-responsive-item" [src]="embedUrl" *ngIf="videoLoaded"> </iframe>
+
+<div *ngIf="!showModal">
+  <h1 class="text-center">{{name}}</h1>
+  <div class="video-player center-block">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe id="videoFrame" class="embed-responsive-item" [src]="embedUrl" *ngIf="videoLoaded"> </iframe>
+    </div>
+  </div>
+  <h5 class="text-center">{{description}}</h5>
+  <button class="btn center-block" (click)="onFaceOff(input)">Take Picture</button>
+  <input class="hidden" type="file" accept="image/*" (change)="fileChange(input)" #input />
+  <div *ngFor="#file_src of file_srcs">
+    <img src='{{ file_src }}' width="80%" class="center-block" />
   </div>
 </div>
-<h5 class="text-center">{{description}}</h5>
-<button class="btn center-block" (click)="onFaceOff(input)">Take Picture</button>
-<input class="hidden" type="file" accept="image/*" (change)="fileChange(input)" #input />
-<div *ngFor="#file_src of file_srcs">  
-    <img src='{{ file_src }}' width="80%" class="center-block"/>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">{{name}}</h4>
+<div *ngIf="showModal">
+  <div class="text-center">{{name}}</div>
+  <div id="myModal">
+    <div class="modal-body modal-center">
+      <img src="{{photo}}" class="photo" width="90%" class="center-block" *ngIf="!submittingPhoto" />
+      <div class="photo-uploading center-block" *ngIf="submittingPhoto">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <p>Please wait for your photo to finish uploading...</p>
       </div>
-      <div class="modal-body">
-        <img src="{{photo}}" class="photo" width="90%" class="center-block" *ngIf="!submittingPhoto" />
-        <div class="photo-uploading center-block" *ngIf="submittingPhoto">
-          <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-          <p>Please wait for your photo to finish uploading...</p>
-        </div>
-      </div>
-      <div class="modal-footer modal-center">
-        <button type="button" class="btn btn-default" (click)="submitPhoto()" [disabled]="submittingPhoto">Submit Photo!</button>
-        <button type="button" class="btn" data-dismiss="modal" [disabled]="submittingPhoto">Try again...</button>
-      </div>
+    </div>
+    <div class="modal-footer modal-center">
+      <button type="button" class="btn btn-default" (click)="submitPhoto()" [disabled]="submittingPhoto">Submit Photo!</button>
+      <button type="button" class="btn" (click)="tryAgain()" [disabled]="submittingPhoto">Try again...</button>
     </div>
   </div>
 </div>

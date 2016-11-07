@@ -2,15 +2,13 @@ $primary-color: rgb(220, 45, 130);
 $secondary-color: rgb(250,190,65);
 
 .modal-dialog {
-  width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .modal {
-    max-width: 500px;
     margin: auto;
+    overflow-y: scroll;
 }
 
 button {
@@ -18,7 +16,7 @@ button {
 }
 
 img, .photo-uploading {
-    margin: 10px;
+    margin: 0 auto 0 auto;
     max-width: 90%;
     max-height: 400px;
     width: auto;
