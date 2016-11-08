@@ -8,7 +8,7 @@
         <h6>{{timeleft}}</h6>
     </div>
     <div class="vertical-center-row" *ngIf="allowLogin">
-        <button class="btn login center-block fade in" (click)="onLogin()">Begin Challenge</button>
+        <button class="btn btn-primary login center-block fade in" [routerLink]="['/register']">Begin Challenge</button>
     </div>
 </div>
 
@@ -26,11 +26,11 @@
     </div>
 </div>
 
-<div class="container">
+<!--<div class="container">
     <div class="vertical-center-row">
         <button class="btn center-block" [routerLink]="['/register']" [disabled]="!allowLogin">Register Now</button>
     </div>
-</div>
+</div>-->
 
 <div class="container">
     <div class="vertical-center-row more-info-link">

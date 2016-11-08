@@ -51,7 +51,7 @@ export class AdminEventsResponsesComponent implements OnInit {
     }
 
     downloadPhotos(challengeId: number) {
-        alert(challengeId);
+        window.open(`https://faceoffstorage.blob.core.windows.net/images/challenge-${challengeId}.zip`, '_blank');
     }
 
 }

@@ -1,5 +1,7 @@
 <rpc-navbar></rpc-navbar>
-<h1 class="text-center">Challenges</h1>
+<h1 class="text-center" *ngIf="!allChallengesCompleted">Challenges</h1>
+<img *ngIf="allChallengesCompleted" src="/assets/rpc_students.png" class="logo center-block" alt="RPC Students">
+<img *ngIf="allChallengesCompleted" src="/assets/faceoff_logo.png" class="logo center-block" alt="Face Off">
 <rpc-loader [showIf]="loading"></rpc-loader>
 <div class="video-player center-block" *ngIf="!anyChallengesCompleted">
   <div class="embed-responsive embed-responsive-16by9">

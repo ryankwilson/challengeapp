@@ -56,6 +56,9 @@ export class RegisterComponent {
 
     passwordChanged(value: any) {
         this.passwordsMatch = (this.password === this.confirmPassword);
+        if (this.passwordsMatch) {
+            this.activeStep = 4;
+        }
     }
 
     onRegister() {

@@ -18,17 +18,19 @@ export class HomeComponent {
 
   constructor() {
     var target_date = new Date(2016, 10, 12, 19, 0, 0);
+    //var target_date = new Date(2016, 10, 7, 17, 18, 0);
     var current_date = new Date();
     var count = new Countdown(target_date, current_date);
     var self = this;
     count.countdown(function (t: any) {
       self.timeleft = self.formatTimeString(t);
+      if (t.days === 0 && t.hours === 0 && t.minutes === 0 && t.seconds === 0) {
+        self.allowLogin = true;
+      }
+      //console.log(t);
     });
   }
 
-  trigger() {
-    this.allowLogin = !this.allowLogin;
-  }
 
   private formatTimeString(t: any): string {
     return `${t.days} D | ${t.hours} H | ${t.minutes} M | ${t.seconds} S`;
