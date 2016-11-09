@@ -26,7 +26,8 @@ export class ChallengesComponent implements OnInit {
         private challengesService: ChallengesService,
         private identityService: IdentityService,
         private sanitizer: DomSanitizationService) {
-            this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/C-yYyvmjqfY?autoplay=1');
+            //this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/C-yYyvmjqfY?autoplay=1');
+            this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/190343326');
             this.outroUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/C-yYyvmjqfY?autoplay=1');
         }
 
