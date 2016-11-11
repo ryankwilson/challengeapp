@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IEvent, IChallenge } from '../../../models/index';
+import { IEvent, IChallenge, IChallengeResponse } from '../../../models/index';
 import { EventsService, ChallengesService, ChallengeResponsesService } from '../../../services/index';
 
 @Component({
@@ -16,6 +16,7 @@ export class AdminEventsResponsesComponent implements OnInit {
     eventName: string;
 
     challenges: IChallenge[];
+    challengeResponses: IChallengeResponse[];
 
     constructor(
         private route: ActivatedRoute,
@@ -52,6 +53,16 @@ export class AdminEventsResponsesComponent implements OnInit {
 
     downloadPhotos(challengeId: number) {
         window.open(`https://faceoffstorage.blob.core.windows.net/images/challenge-${challengeId}.zip`, '_blank');
+    }
+
+    showChallengeResponses(challengeId: number) {
+        this.challengeResponsesService.getChallengeResponsesByChallenge(challengeId)
+            .subscribe(
+                responses => {
+                    this.challengeResponses = responses;
+                },
+                error => this.handleError(error)
+            );
     }
 
 }

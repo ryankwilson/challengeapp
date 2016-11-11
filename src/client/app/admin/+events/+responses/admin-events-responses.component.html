@@ -2,7 +2,12 @@
     <h1>{{eventName}} - Responses</h1>
     <ul>
         <li *ngFor="let challenge of challenges">
-            {{challenge.Name}} (<a (click)="downloadPhotos(challenge.ChallengeId)">Download Photos</a>)
+            <a (click)="showChallengeResponses(challenge.ChallengeId)">{{challenge.Name}}</a> 
+            (<a (click)="downloadPhotos(challenge.ChallengeId)">Download Photos</a>)
         </li>
     </ul>
+    <hr>
+    <div>
+        <img *ngFor="let cr of challengeResponses" src="https://faceoffstorage.blob.core.windows.net/images/{{cr.Photo}}" style="max-width: 400px">
+    </div>
 </div>

@@ -20,6 +20,13 @@ export class ChallengeResponsesService extends ServiceBase {
             .catch(this.handleChallengeResponseError);
     }
 
+    getChallengeResponsesByChallenge(challengeId: number) : Observable<IChallengeResponse[]> {
+        var url = this.buildUrl(`/challengeresponses/challenge/${challengeId}`);
+        return this._http.get(url)
+            .map(this.mapByChallengeSuccess)
+            .catch(this.handleMapByChallengeError);
+    }
+
     private mapChallengeResponseSuccess(response: Response) {
         return response.json();
     }
@@ -27,6 +34,15 @@ export class ChallengeResponsesService extends ServiceBase {
     private handleChallengeResponseError(error: Response) {
         let errMsg = 'Something is wrong with the server!';
         return Observable.throw(errMsg || 'Server error');
+   }
+
+   private mapByChallengeSuccess(response: Response) {
+       return response.json();
+   }
+
+   private handleMapByChallengeError(error: Response) {
+       let errMsg = 'Something is wrong with the server!';
+       return Observable.throw(errMsg || 'Server error');
    }
 
 }
