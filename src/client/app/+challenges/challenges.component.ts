@@ -27,8 +27,8 @@ export class ChallengesComponent implements OnInit {
         private identityService: IdentityService,
         private sanitizer: DomSanitizationService) {
             //this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/C-yYyvmjqfY?autoplay=1');
-            this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/241576756');
-            this.outroUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/241566473');
+            this.introUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/301290028');
+            this.outroUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://player.vimeo.com/video/301290822');
         }
 
     ngOnInit() {
